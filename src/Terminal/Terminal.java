@@ -1,4 +1,4 @@
-package Console;
+package Terminal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,8 +10,10 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Builds an external terminal that is more intuitive and customizable
+ * than the normal IDE terminal
  * @author TMG8047KG
- * @version 1.0.0
+ * @version 1.0.1-beta
  * */
 public class Terminal {
     private JPanel MainPanel;
@@ -19,10 +21,11 @@ public class Terminal {
     private JScrollPane scroll;
     private final int height;
     private final int width;
-    private boolean editable;
+    private boolean editable = true;
     private Color backgroundColor = new Color(0, 0,0);
     private Color fontColor = new Color(0, 220, 30);
-    private Font font = new Font("Courier New", Font.BOLD,16);
+    private int fontSize = 16;
+    private Font font = new Font("Courier New", Font.BOLD, fontSize);
     private final List<String> input = new ArrayList<>();
     ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     //TODO: Add option for multiple schedules
@@ -34,10 +37,20 @@ public class Terminal {
     private int[][] intMatrix;
 
     //=======================
-    //     Constructor
+    //     Constructors
     //=======================
 
     /**
+     * Declares the terminal
+     * Has default sizes of 450x650 pixels
+     * */
+    public Terminal(){
+        this.height = 450;
+        this.width = 650;
+    }
+
+    /**
+     * Declares the terminal
      * Defines the size of the console
      * @param height
      * The height in pixels
@@ -74,6 +87,9 @@ public class Terminal {
     }
 
 
+    //TODO: add timer that executes methods in set time
+
+
     /**
      * Sets the delay between executions in the schedule (in milliseconds)
      * @param delay
@@ -96,7 +112,9 @@ public class Terminal {
 
     /**
      * Starts the schedule
-     * Uses on one CPU thread
+     * The update method is single threaded and executes by default every half a second
+     * unless changed with the {@link #setDelay(int)} then the update method
+     * will start with the given delay time
      * */
     public void start(){
         executor.scheduleWithFixedDelay(scheduleUpdate::Update, initialDelay, delay, TimeUnit.MILLISECONDS);
@@ -156,7 +174,7 @@ public class Terminal {
      * set matrix
      * @see #printMatrix()
      * */
-    public void setMatix(int[][] intMatrix){
+    public void setMatrix(int[][] intMatrix){
         this.intMatrix = intMatrix;
     }
 
@@ -166,7 +184,7 @@ public class Terminal {
      * set matrix
      * @see #printMatrix()
      * */
-    public void setMatix(char[][] charMatrix){
+    public void setMatrix(char[][] charMatrix){
         this.charMatrix = charMatrix;
     }
 
@@ -176,16 +194,16 @@ public class Terminal {
      * set matrix
      * @see #printMatrix()
      * */
-    public void setMatix(String[][] stringMatrix){
+    public void setMatrix(String[][] stringMatrix){
         this.stringMatrix = stringMatrix;
     }
 
     /**
      * Prints the set matrix
      * @see "all methods for setting a matrix here:
-     * - {@link #setMatix(int[][])}
-     * - {@link #setMatix(char[][])}
-     * - {@link #setMatix(String[][])}"
+     * - {@link #setMatrix(int[][])}
+     * - {@link #setMatrix(char[][])}
+     * - {@link #setMatrix(String[][])}"
      * */
     public void printMatrix(){
         if(charMatrix != null){
@@ -334,6 +352,14 @@ public class Terminal {
     }
 
     /**
+     * Changes the size of the font
+     * @param fontSize
+     * size*/
+    public void setFontSize(int fontSize){
+        this.fontSize = fontSize;
+    }
+
+    /**
      * Sets the {@link Color} of the terminal font
      * @param fontColor
      * sets the font {@link Color}
@@ -363,11 +389,16 @@ public class Terminal {
     public void build(){
         createUIComponents();
 
-        JFrame frame = new JFrame("Console");
+        JFrame frame = new JFrame("Terminal");
         frame.setSize(width, height);
         //TODO: add scroll
         frame.setContentPane(textArea);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //TODO: Convert this to an option for full screen
+//        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
