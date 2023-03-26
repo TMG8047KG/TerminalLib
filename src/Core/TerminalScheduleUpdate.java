@@ -1,4 +1,4 @@
-package Console;
+package Core;
 
 public interface TerminalScheduleUpdate {
     void Update();
