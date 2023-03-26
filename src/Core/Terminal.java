@@ -131,7 +131,7 @@ public class Terminal {
         start();
     }
 
-    //TODO: add timer that executes methods in predifined time
+    //TODO: add timer that executes methods in predefined time
 
     /**
      * Sets the delay between executions in the schedule (in milliseconds)
