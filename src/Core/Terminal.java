@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * than the normal IDE terminal
  *
  * @author TMG8047KG
- * @version 1.0.1-beta
+ * @version 1.0.2-beta
  */
 public class Terminal {
     private final int height;
@@ -34,9 +34,9 @@ public class Terminal {
     private boolean resizeable = true;
     private boolean fullscreen = false;
     private Color backgroundColor = new Color(0, 0, 0);
-    private Color fontColor = new Color(0, 220, 30);
+    private Color fontColor = new Color(0, 225, 0);
     private int fontSize = 16;
-    private Font font = new Font("Courier New", Font.BOLD, fontSize);
+    private Font font;
     private char[][] charMatrix;
     private String[][] stringMatrix;
     private int[][] intMatrix;
@@ -124,7 +124,6 @@ public class Terminal {
      * Starts the schedule on default
      *
      * @param scheduleUpdate adds new {@link TerminalScheduleUpdate}
-     * @see "{@link #}"
      */
     public void setSchedule(TerminalScheduleUpdate scheduleUpdate) {
         this.scheduleUpdate = scheduleUpdate;
@@ -244,11 +243,7 @@ public class Terminal {
 
     /**
      * Prints the set matrix
-     *
-     * @see "all methods for setting a matrix here:
-     * - {@link #setMatrix(int[][])}
-     * - {@link #setMatrix(char[][])}
-     * - {@link #setMatrix(String[][])}"
+     * With some limitations
      */
     public void printMatrix() {
         if (charMatrix != null) {
@@ -356,6 +351,8 @@ public class Terminal {
      * Pasting text with more than one line is not going to read the lines on top
      * Always reads the last line even if nothing is typed
      * Stops the execution for the most of the things
+     *
+     * @return Last line in the Terminal
      */
     public String readLine() {
         readEvent();
@@ -425,6 +422,11 @@ public class Terminal {
         this.fontColor = fontColor;
     }
 
+    public void setFontColor(int r, int g, int b){
+        this.fontColor = new Color(r , g, b);
+    }
+
+
     /**
      * Changes the font that the terminal will use
      * by creating new {@link Font} object
@@ -434,6 +436,26 @@ public class Terminal {
     public void setFont(Font font) {
         this.font = font;
     }
+
+    public void setFont(String name, int style, int size){
+        this.font = new Font(name, style, size);
+    }
+
+    public void setFont(String name, int style){
+        this.font = new Font(name, style, fontSize);
+    }
+
+    public void setFont(String name){
+        this.font = new Font(name, 0, fontSize);
+    }
+
+    public Font getFont(){
+        if(font==null){
+            this.font = new Font("Monospaced", Font.BOLD, fontSize);
+        }
+        return this.font;
+    }
+
 
     /**
      * Sets whether the Terminal window is resizable by the user
@@ -475,7 +497,7 @@ public class Terminal {
     private void createUIComponents() {
         textArea.setBackground(backgroundColor);
         textArea.setForeground(fontColor);
-        textArea.setFont(font);
+        textArea.setFont(getFont());
         textArea.setEditable(editable);
     }
 
