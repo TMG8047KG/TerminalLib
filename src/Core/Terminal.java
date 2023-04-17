@@ -22,6 +22,7 @@ public class Terminal {
     private final int width;
     private final List<String> input = new ArrayList<>();
     private ScheduledExecutorService executorService;
+    private ScheduledExecutorService timerExecutor;
     TerminalScheduleUpdate scheduleUpdate;
     int initialDelay = 0;
     int delay = 500;
@@ -118,11 +119,12 @@ public class Terminal {
     }
 
     /**
-     * Sets the schedule (periodic execution) for the terminal
-     * Schedules default execute times are on every second executes 2 times (2t/s)
-     * This executes everything in {@link TerminalScheduleUpdate#Update()} indefinitely, until stopped
-     * Starts the schedule on default
-     *
+     * Sets the periodic execution(schedule) for the terminal
+     * <p>
+     *     This method executes by default 2 times in a second
+     *     you can change the value of the delay to change how many times in a second to execute
+     * </p>
+     * Documentation on how use  watch the GitHub
      * @param scheduleUpdate adds new {@link TerminalScheduleUpdate}
      */
     public void setSchedule(TerminalScheduleUpdate scheduleUpdate) {
@@ -130,7 +132,16 @@ public class Terminal {
         start();
     }
 
-    //TODO: add timer that executes methods in predefined time
+    /**
+     * Runs void method after a given delay
+     *
+     * @param method runnable void method
+     * @param delay delay in milliseconds
+     * */
+    public void setTimer(Runnable method, long delay){
+        this.timerExecutor.schedule(method, delay, TimeUnit.MILLISECONDS);
+    }
+
 
     /**
      * Sets the delay between executions in the schedule (in milliseconds)
@@ -153,10 +164,10 @@ public class Terminal {
 
 
     /**
-     * Starts the schedule
-     * The update method is single threaded and executes by default every half a second
-     * unless changed with the {@link #setDelay(int)} then the update method
-     * will start with the given delay time
+     * Starts the update schedule
+     * <p>
+     *     This starts a loop that constantly executes the update method from {@link TerminalScheduleUpdate}
+     * </p>
      */
     public void start() {
         executorService = Executors.newSingleThreadScheduledExecutor();
@@ -177,7 +188,9 @@ public class Terminal {
 
     /**
      * Adds {@link KeyListener} to the Terminal
-     * You have to build your KeyListener before you add it
+     * <p>
+     *     You have to build your KeyListener before you add it
+     * </p>
      *
      * @param listener adds {@link KeyListener}
      * @see KeyListener
@@ -348,9 +361,11 @@ public class Terminal {
      * Reads the last line in the Terminal
      *
      * Limitations:
-     * Pasting text with more than one line is not going to read the lines on top
-     * Always reads the last line even if nothing is typed
-     * Stops the execution for the most of the things
+     * <p>
+     *     Pasting text with more than one line is not going to read the lines on top
+     *     Always reads the last line even if nothing is typed
+     *     Stops the execution for the most of the things
+     * </p>
      *
      * @return Last line in the Terminal
      */
@@ -395,6 +410,11 @@ public class Terminal {
         textArea.addKeyListener(readLine);
     }
 
+    //=======================
+    //     Build options
+    //=======================
+
+
     /**
      * Sets the {@link Color} of the terminal background
      *
@@ -402,6 +422,10 @@ public class Terminal {
      */
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
+    }
+
+    public void setBackgroundColor(int r, int g, int b){
+        this.backgroundColor =  new Color(r, g, b);
     }
 
     /**
@@ -422,33 +446,76 @@ public class Terminal {
         this.fontColor = fontColor;
     }
 
+    /**
+     * Sets the font color to a new one
+     * <p>
+     *     this can be done by selecting the rgb values of the color you want
+     * </p>
+     * @param r red
+     * @param g green
+     * @param b blue
+     * */
     public void setFontColor(int r, int g, int b){
         this.fontColor = new Color(r , g, b);
     }
 
 
     /**
-     * Changes the font that the terminal will use
-     * by creating new {@link Font} object
-     *
+     * Sets the font to a new one
+     * <p>
+     *     This is done by making a new {@link Font} object
+     * </p>
      * @param font sets {@link Font}
      */
     public void setFont(Font font) {
         this.font = font;
     }
 
+    /**
+     * Sets the font to a new one
+     * <p>
+     *     Sets the font by giving it the name of the font as well as the desired style and size
+     * </p>
+     * <p>
+     *     The styles can be bold, italics and so on (default = 0)
+     * </p>
+     * @param name the name of the font
+     * @param style the style of the font
+     * @param size the font size
+     */
     public void setFont(String name, int style, int size){
         this.font = new Font(name, style, size);
     }
 
+    /**
+     * Sets the font to a new one
+     * <p>
+     *     Sets the font by giving it the name of the font as well as the desired style
+     * </p>
+     * <p>
+     *     The styles can be bold, italics and so on (default = 0)
+     * </p>
+     * @param name the name of the font
+     * @param style the style of the font
+     */
     public void setFont(String name, int style){
         this.font = new Font(name, style, fontSize);
     }
 
+    /**
+     * Sets the font to a new one
+     * <p>
+     *     Sets the font by giving it the name of the font
+     * </p>
+     * @param name the name of the font
+     */
     public void setFont(String name){
         this.font = new Font(name, 0, fontSize);
     }
 
+    /**
+     * Gives the set font
+     * @return font*/
     public Font getFont(){
         if(font==null){
             this.font = new Font("Monospaced", Font.BOLD, fontSize);

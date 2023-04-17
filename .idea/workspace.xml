@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c97fbd5-e23a-4fe9-b545-d6193f21cbf9" name="Changes" comment="1.0.1-beta Documentation Update (Pls work)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3c97fbd5-e23a-4fe9-b545-d6193f21cbf9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Terminal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Terminal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Terminal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,12 +63,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TODO_SCOPE": "All Places",
     "git-widget-placeholder": "1.0.2-beta",
+    "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "corretto-1.8",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.sourceCode"
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -198,5 +197,9 @@
     <MESSAGE value="Documentation fix" />
     <MESSAGE value="1.0.1-beta Documentation Update (Pls work)" />
     <option name="LAST_COMMIT_MESSAGE" value="1.0.1-beta Documentation Update (Pls work)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
