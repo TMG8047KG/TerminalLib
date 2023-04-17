@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c97fbd5-e23a-4fe9-b545-d6193f21cbf9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Terminal.java" afterDir="false" />
-    </list>
+    <list default="true" id="3c97fbd5-e23a-4fe9-b545-d6193f21cbf9" name="Changes" comment="1.0.2-beta documentation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,21 +54,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "git-widget-placeholder": "1.0.2-beta",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-1.8",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;1.0.2-beta&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-1.8&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\USER\Desktop\Projects\Java Projects\Terminal" />
@@ -162,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679853454129</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="1.0.2-beta documentation">
+      <created>1681765109816</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681765109817</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,7 +200,8 @@
     <MESSAGE value="1.0.1-beta documentation update" />
     <MESSAGE value="Documentation fix" />
     <MESSAGE value="1.0.1-beta Documentation Update (Pls work)" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.1-beta Documentation Update (Pls work)" />
+    <MESSAGE value="1.0.2-beta documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.2-beta documentation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
