@@ -1,6 +1,8 @@
 package Core;
 
+
 import javax.swing.*;
+import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -29,7 +31,8 @@ public class Terminal {
     private String title = "Terminal";
     private JFrame frame;
     private JPanel MainPanel;
-    private JTextArea textArea;
+    private JPanel panel;
+    private JTextPane textPane;
     private JScrollPane scroll;
     private boolean editable = true;
     private boolean resizeable = true;
@@ -196,7 +199,7 @@ public class Terminal {
      * @see KeyListener
      */
     public void addKeyListener(KeyListener listener) {
-        textArea.addKeyListener(listener);
+        textPane.addKeyListener(listener);
     }
 
     /**
@@ -205,7 +208,7 @@ public class Terminal {
      * @param listener Removes listener
      */
     public void removeKeyListener(KeyListener listener) {
-        textArea.removeKeyListener(listener);
+        textPane.removeKeyListener(listener);
     }
 
     //=======================
@@ -316,13 +319,27 @@ public class Terminal {
     // Basic console methods
     //=======================
 
+    private void append(String text) throws BadLocationException
+    {
+        StyledDocument document = (StyledDocument) textPane.getDocument();
+        document.insertString(document.getLength(), text, null);
+    }
+
+    private void append(String text, Color color) throws BadLocationException
+    {
+        StyledDocument document = textPane.getStyledDocument();
+        Style style = document.addStyle("Color", null);
+        StyleConstants.setForeground(style, color);
+        document.insertString(document.getLength(), text, style);
+    }
+
     /**
      * Sets or overrides all the text shown in the terminal
      *
      * @param text sets text
      */
     public void setText(String text) {
-        textArea.setText(text);
+        textPane.setText(text);
     }
 
     /**
@@ -330,15 +347,40 @@ public class Terminal {
      *
      * @param text output text
      */
+
+    public void print(String text, int r, int g, int b) {
+        try {
+            append(text, new Color(r, g, b));
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void print(String text, Color color) {
+        try {
+            append(text, color);
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void print(String text) {
-        textArea.append(text);
+        try {
+            append(text);
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
      * Outputs {@link String} to the terminal and makes a new line
      */
     public void println() {
-        textArea.append("\n");
+        try {
+            append("\n");
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -347,14 +389,34 @@ public class Terminal {
      * @param text output text
      */
     public void println(String text) {
-        textArea.append(text + "\n");
+        try {
+            append(text + "\n");
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void println(String text, int r, int g, int b) {
+        try {
+            append(text + "\n", new Color(r, g, b));
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void println(String text, Color color) {
+        try {
+            append(text + "\n", color);
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
      * Clears the terminal by setting the text to nothing
      */
     public void clear() {
-        textArea.setText(null);
+        textPane.setText(null);
     }
 
     /**
@@ -394,7 +456,7 @@ public class Terminal {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     synchronized (input) {
-                        String[] text = textArea.getText().split("\\n");
+                        String[] text = textPane.getText().split("\\n");
                         int lastLine = text.length - 1;
                         //TODO: make it not to get the last line if nothing is typed
                         input.add(text[lastLine]);
@@ -407,7 +469,7 @@ public class Terminal {
             public void keyReleased(KeyEvent e) {
             }
         };
-        textArea.addKeyListener(readLine);
+        textPane.addKeyListener(readLine);
     }
 
     //=======================
@@ -510,7 +572,7 @@ public class Terminal {
      * @param name the name of the font
      */
     public void setFont(String name){
-        this.font = new Font(name, 0, fontSize);
+        this.font = new Font(name, Font.PLAIN, fontSize);
     }
 
     /**
@@ -518,7 +580,7 @@ public class Terminal {
      * @return font*/
     public Font getFont(){
         if(font==null){
-            this.font = new Font("Monospaced", Font.BOLD, fontSize);
+            this.font = new Font("Segoe UI", Font.BOLD, fontSize);
         }
         return this.font;
     }
@@ -562,10 +624,10 @@ public class Terminal {
     }
 
     private void createUIComponents() {
-        textArea.setBackground(backgroundColor);
-        textArea.setForeground(fontColor);
-        textArea.setFont(getFont());
-        textArea.setEditable(editable);
+        textPane.setBackground(backgroundColor);
+        textPane.setForeground(fontColor);
+        textPane.setFont(getFont());
+        textPane.setEditable(editable);
     }
 
     /**
@@ -573,14 +635,13 @@ public class Terminal {
      * for the
      */
     public void run() {
-
-        //TODO: Add scrollbar that shows up when needed
-
         createUIComponents();
-
+        panel = new JPanel(new BorderLayout());
+        panel.add(textPane);
+        scroll = new JScrollPane(panel);
         frame = new JFrame(title);
         frame.setSize(width, height);
-        frame.setContentPane(textArea);
+        frame.setContentPane(scroll);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(resizeable);
