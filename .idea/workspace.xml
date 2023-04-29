@@ -2,33 +2,19 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Terminal_Source" />
+      <artifact name="Terminal" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c97fbd5-e23a-4fe9-b545-d6193f21cbf9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+    <list default="true" id="3c97fbd5-e23a-4fe9-b545-d6193f21cbf9" name="Changes" comment="maven test 1">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Terminal-1.0.3-BETA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Core/Terminal$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Core/Terminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Core/TerminalScheduleUpdate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +84,8 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "left",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-1.8",
-    "project.structure.last.edited": "Artifacts",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -121,6 +107,15 @@
       <command value="mvn install:install-file \    -Dfile=&lt;path-to-file&gt; \    -DgroupId=&lt;group-id&gt; \    -DartifactId=&lt;artifact-id&gt; \    -Dversion=&lt;version&gt; \    -Dpackaging=&lt;packaging&gt; \    -DgeneratePom=true" />
       <command value="mvn install:install-file \    -Dfile=out/artifacts/Terminal \    -DgroupId=&lt;group-id&gt; \    -DartifactId=&lt;artifact-id&gt; \    -Dversion=&lt;version&gt; \    -Dpackaging=&lt;packaging&gt; \    -DgeneratePom=true" />
       <command value="mvn install:install-file \    -Dfile=out/artifacts/Terminal \    -DgroupId=io.github.TMG8047KG \    -DartifactId=Terminal \    -Dversion=1.0.3-beta \    -Dpackaging=jar \    -DgeneratePom=true" />
+      <command value="mvn -version" />
+      <command value="mvn --version" />
+      <command value="mvn archetype:create-from-project" />
+      <command value="mvn clean compile" />
+      <command value="mvn dependency:lisy" />
+      <command value="mvn dependency:list" />
+      <command value="mvn clean package install" />
+      <command value="mvn clean compile -e" />
+      <command value="mvn clean compile -X" />
     </option>
   </component>
   <component name="RunManager">
@@ -244,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682784657255</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="maven test 1">
+      <created>1682796782458</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682796782458</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -280,7 +282,8 @@
     <MESSAGE value="1.0.1-beta Documentation Update (Pls work)" />
     <MESSAGE value="1.0.2-beta documentation" />
     <MESSAGE value="maven #1" />
-    <option name="LAST_COMMIT_MESSAGE" value="maven #1" />
+    <MESSAGE value="maven test 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="maven test 1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
