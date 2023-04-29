@@ -8,6 +8,8 @@
 <p>The library is made to bring more flexibility to terminal applications such as games by allowing them to create complex algorithms 
 by adding all kinds of events and controls that give you the option to create a player movement, for example.</p>
 
+You can follow the project development in [here](https://trello.com/b/3etg38WM)!
+
 ## Documentation
 *The documentation on how to use it is still in work process!*<br>
 You can find the Javadocs [here](https://tmg8047kg.github.io/Terminal-Lib/).
