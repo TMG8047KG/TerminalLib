@@ -364,6 +364,9 @@ public class Terminal {
         }
     }
 
+    /**
+     * @param text
+     */
     public void print(String text) {
         try {
             append(text);

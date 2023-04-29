@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project xmlns = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.tmg8047kg</groupId>
+    <artifactId>Terminal</artifactId>
+    <version>1.0.3-BETA</version>
+    <packaging>jar</packaging>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>A library that builds terminal looking window with wide variety of options</description>
+    <url>https://github.com/TMG8047KG/Terminal-Lib</url>
+
+    <licenses>
+        <license>
+            <name>BSD 3-Clause "New" or "Revised" License</name>
+            <url>https://github.com/TMG8047KG/Terminal-Lib/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>TMG8047KG</name>
+            <organization>RoseWorld</organization>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/TMG8047KG/Terminal-Lib.git</connection>
+        <developerConnection>scm:git:ssh://github.com:TMG8047KG/Terminal-Lib.git</developerConnection>
+        <url>http://github.com/TMG8047KG/Terminal-Lib/tree/master</url>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/TMG8047KG/Terminal-Lib</url>
+        </repository>
+    </distributionManagement>
+</project>
