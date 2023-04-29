@@ -17,14 +17,13 @@ import java.util.concurrent.TimeUnit;
  * than the normal IDE terminal
  *
  * @author TMG8047KG
- * @version 1.0.2-beta
+ * @version 1.0.3-beta
  */
 public class Terminal {
     private final int height;
     private final int width;
     private final List<String> input = new ArrayList<>();
     private ScheduledExecutorService executorService;
-    private ScheduledExecutorService timerExecutor;
     TerminalScheduleUpdate scheduleUpdate;
     int initialDelay = 0;
     int delay = 500;
@@ -134,17 +133,6 @@ public class Terminal {
         this.scheduleUpdate = scheduleUpdate;
         start();
     }
-
-    /**
-     * Runs void method after a given delay
-     *
-     * @param method runnable void method
-     * @param delay delay in milliseconds
-     * */
-    public void setTimer(Runnable method, long delay){
-        this.timerExecutor.schedule(method, delay, TimeUnit.MILLISECONDS);
-    }
-
 
     /**
      * Sets the delay between executions in the schedule (in milliseconds)
@@ -343,11 +331,13 @@ public class Terminal {
     }
 
     /**
-     * Outputs {@link String} to the terminal
+     * Outputs {@link String} to the terminal with {@link Color} by selecting the rgb values
      *
      * @param text output text
+     * @param r red
+     * @param g green
+     * @param b blue
      */
-
     public void print(String text, int r, int g, int b) {
         try {
             append(text, new Color(r, g, b));
@@ -355,7 +345,12 @@ public class Terminal {
             throw new RuntimeException(e);
         }
     }
-
+    /**
+     * Outputs {@link String} to the terminal with {@link Color}
+     *
+     * @param text output text
+     * @param color color
+     */
     public void print(String text, Color color) {
         try {
             append(text, color);
@@ -365,7 +360,9 @@ public class Terminal {
     }
 
     /**
-     * @param text
+     * Outputs {@link String} to the terminal
+     *
+     * @param text output text
      */
     public void print(String text) {
         try {
@@ -399,6 +396,14 @@ public class Terminal {
         }
     }
 
+    /**
+     * Outputs {@link String} to the terminal and makes a new line with {@link Color} by selecting the rgb values
+     *
+     * @param text output text
+     * @param r red
+     * @param g green
+     * @param b blue
+     */
     public void println(String text, int r, int g, int b) {
         try {
             append(text + "\n", new Color(r, g, b));
@@ -407,6 +412,12 @@ public class Terminal {
         }
     }
 
+    /**
+     * Outputs {@link String} to the terminal and makes a new line with {@link Color}
+     *
+     * @param text output text
+     * @param color color
+     */
     public void println(String text, Color color) {
         try {
             append(text + "\n", color);
