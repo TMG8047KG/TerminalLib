@@ -4,7 +4,7 @@ package Core;
  * Executes code periodically
  *
  * @author TMG8047KG
- * @version 1.0.2-beta
+ * @version 1.0.3-beta
  * */
 public interface TerminalScheduleUpdate {
     /**
