@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Terminal">
+  <artifact type="jar" build-on-make="true" name="Terminal">
     <output-path>$PROJECT_DIR$/out/artifacts/Terminal</output-path>
     <properties id="ant-postprocessing">
       <options enabled="true" />
@@ -8,7 +8,7 @@
       <options enabled="true" />
     </properties>
     <root id="archive" name="Terminal.jar">
-      <element id="module-output" name="Terminal" />
+      <element id="module-output" name="Terminal.main" />
     </root>
   </artifact>
 </component>
