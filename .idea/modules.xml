@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java Projects.Terminal.iml" filepath="$PROJECT_DIR$/.idea/modules/Java Projects.Terminal.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Terminal.iml" filepath="$PROJECT_DIR$/.idea/modules/Terminal.iml" />
     </modules>
   </component>

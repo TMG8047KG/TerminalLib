@@ -169,7 +169,7 @@ public class Terminal {
     /**
      * Stops the schedule from running
      */
-    public void stop(){
+    public void stopUpdate(){
         executorService.shutdown();
     }
 
@@ -245,6 +245,99 @@ public class Terminal {
         this.stringMatrix = stringMatrix;
     }
 
+
+
+    /**
+     * Clears the terminal and prints a char matrix
+     * @param matrix matrix
+     * @param clean cleans the terminal
+     */
+    public void printMatrix(char[][] matrix, boolean clean){
+        if(clean){
+            clear();
+        }
+        for (char[] row : matrix) {
+            for (int column = 0; column < matrix[0].length; column++) {
+                print(row[column] + " ");
+            }
+            println();
+        }
+    }
+
+    /**
+     * Clears the terminal and prints an int matrix
+     * @param matrix matrix
+     * @param clean cleans the terminal
+     */
+    public void printMatrix(int[][] matrix, boolean clean){
+        if(clean){
+            clear();
+        }
+        for (int[] row : matrix) {
+            for (int column = 0; column < matrix[0].length; column++) {
+                print(row[column] + " ");
+            }
+            println();
+        }
+    }
+
+    /**
+     * Clears the terminal and prints a String matrix
+     * @param matrix matrix
+     * @param clean cleans the terminal
+     */
+    public void printMatrix(String[][] matrix, boolean clean){
+        if(clean){
+            clear();
+        }
+        for (String[] row : matrix) {
+            for (int column = 0; column < matrix[0].length; column++) {
+                print(row[column] + " ");
+            }
+            println();
+        }
+    }
+
+
+    /**
+     * Prints a char matrix in the Terminal
+     * @param matrix matrix
+     */
+    public void printMatrix(char[][] matrix){
+        for (char[] row : matrix) {
+            for (int column = 0; column < matrix[0].length; column++) {
+                print(row[column] + " ");
+            }
+            println();
+        }
+    }
+
+    /**
+     * Prints an int matrix in the Terminal
+     * @param matrix matrix
+     */
+    public void printMatrix(int[][] matrix){
+        for (int[] row : matrix) {
+            for (int column = 0; column < matrix[0].length; column++) {
+                print(row[column] + " ");
+            }
+            println();
+        }
+    }
+
+    /**
+     * Prints a String matrix in the Terminal
+     * @param matrix matrix
+     */
+    public void printMatrix(String[][] matrix){
+        for (String[] row : matrix) {
+            for (int column = 0; column < matrix[0].length; column++) {
+                print(row[column] + " ");
+            }
+            println();
+        }
+    }
+
     /**
      * Prints the set matrix
      * With some limitations
@@ -307,6 +400,13 @@ public class Terminal {
     // Basic console methods
     //=======================
 
+    /**
+     * Closes the terminal
+     */
+    public void stop(){
+        frame.dispose();
+    }
+
     private void append(String text) throws BadLocationException
     {
         StyledDocument document = (StyledDocument) textPane.getDocument();
@@ -345,6 +445,7 @@ public class Terminal {
             throw new RuntimeException(e);
         }
     }
+
     /**
      * Outputs {@link String} to the terminal with {@link Color}
      *

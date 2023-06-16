@@ -13,7 +13,9 @@
     <children>
       <scrollpane id="f8953" binding="scroll">
         <constraints border-constraint="Center"/>
-        <properties/>
+        <properties>
+          <enabled value="false"/>
+        </properties>
         <border type="none"/>
         <children>
           <grid id="d92d1" binding="panel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

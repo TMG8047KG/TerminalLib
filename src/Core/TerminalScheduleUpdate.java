@@ -10,7 +10,7 @@ public interface TerminalScheduleUpdate {
     /**
      * This is overrideable
      * <p>
-     *     Everything in this method executes in the set and given delay
+     *     Everything in this method e
      * </p>
      * */
     void Update();
